@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/loginBkColor"
+    tools:context=".ViewRecipesFragment">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="225dp"
+        android:background="#FFFF"
+        android:src="@drawable/sandwich" />
+
+    <TextView
+        android:id="@+id/txtTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="48dp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="sans-serif"
+        android:lineSpacingExtra="7sp"
+        android:shadowColor="#24000000"
+        android:shadowDy="3"
+        android:shadowRadius="6"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        android:textStyle="normal"
+        tools:text="Nombre receta" />
+
+    <TextView
+        android:id="@+id/txtCat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="52dp"
+        android:fontFamily="sans-serif"
+        android:lineSpacingExtra="4sp"
+        android:textColor="#94000000"
+        android:textSize="20sp"
+        android:textStyle="normal"
+        tools:text="Categoria" />
+
+    <TextView
+        android:id="@+id/txtDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="sans-serif"
+        android:lineSpacingExtra="4sp"
+        android:textColor="#014e7d"
+        android:textSize="20sp"
+        android:textStyle="normal"
+        tools:text="Descripción" />
+
+    <TextView
+        android:id="@+id/txtIngr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="sans-serif"
+        android:lineSpacingExtra="4sp"
+        android:textColor="#014e7d"
+        android:textSize="20sp"
+        android:textStyle="normal"
+        tools:text="Ingredientes:" />
+
+    <TextView
+        android:id="@+id/txtPrep"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="sans-serif"
+        android:lineSpacingExtra="4sp"
+        android:textColor="#014e7d"
+        android:textSize="20sp"
+        android:textStyle="normal"
+        tools:text="Preparación" />
+
+</LinearLayout>

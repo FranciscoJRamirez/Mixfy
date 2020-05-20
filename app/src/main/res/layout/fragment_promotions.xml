@@ -28,7 +28,7 @@
 
         android:textSize="30sp"
         android:textStyle="normal"
-        tools:text="Wendy's" />
+        android:text="Wendy's" />
 
     <TextView
         android:id="@+id/txtCat"
@@ -40,7 +40,7 @@
         android:textColor="#94000000"
         android:textSize="20sp"
         android:textStyle="normal"
-        tools:text="Hamburguesas" />
+        android:text="Hamburguesas" />
 
     <TextView
         android:id="@+id/txtDesc"
@@ -53,7 +53,8 @@
         android:textColor="#014e7d"
         android:textSize="20sp"
         android:textStyle="normal"
-        tools:text="Telefono" />
+        android:drawableLeft="@drawable/ic_phone"
+        android:text="Teléfono" />
 
     <TextView
         android:id="@+id/txtIngr"
@@ -66,7 +67,8 @@
         android:textColor="#014e7d"
         android:textSize="20sp"
         android:textStyle="normal"
-        tools:text="Direccion" />
+        android:drawableLeft="@drawable/ic_location"
+        android:text="Dirección"/>
 
     <TextView
         android:id="@+id/txtPrep"
@@ -79,6 +81,7 @@
         android:textColor="#014e7d"
         android:textSize="20sp"
         android:textStyle="normal"
-        tools:text="Serial:" />
+        android:drawableLeft="@drawable/ic_serial"
+        android:text="Serial:" />
 
 </LinearLayout>

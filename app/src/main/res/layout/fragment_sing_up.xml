@@ -58,11 +58,11 @@
                     android:text="Registrarse" />
 
                 <TextView
-                    android:id="@+id/textInputEmail"
+                    android:id="@+id/textName"
                     style="@style/parent"
                     android:layout_marginTop="10dp"
                     android:textColor="@color/primaryTextColor"
-                    tools:text="Nombre" />
+                    android:text="Nombre:" />
 
                 <EditText
                     android:id="@+id/editTextName"
@@ -72,11 +72,11 @@
                     android:maxLines="1" />
 
                 <TextView
-                    android:id="@+id/textInputEmail"
+                    android:id="@+id/textPhone"
                     style="@style/parent"
                     android:layout_marginTop="10dp"
                     android:textColor="@color/primaryTextColor"
-                    tools:text="Celular" />
+                    android:text="Celular:" />
 
                 <EditText
                     android:id="@+id/editTextCel"
@@ -86,11 +86,11 @@
                     android:maxLines="1" />
 
                 <TextView
-                    android:id="@+id/textInputEmail"
+                    android:id="@+id/textEmail"
                     style="@style/parent"
                     android:layout_marginTop="10dp"
                     android:textColor="@color/primaryTextColor"
-                    tools:text="Correo" />
+                    android:text="Correo electrónico:" />
 
                 <EditText
                     android:id="@+id/editTextEmail"
@@ -100,11 +100,11 @@
                     android:maxLines="1" />
 
                 <TextView
-                    android:id="@+id/textInputEmail"
+                    android:id="@+id/textPassword"
                     style="@style/parent"
                     android:layout_marginTop="10dp"
                     android:textColor="@color/primaryTextColor"
-                    tools:text="Contraseña" />
+                    android:text="Contraseña:" />
 
                 <EditText
                     android:id="@+id/editTextPass"
@@ -127,7 +127,6 @@
                     android:textAlignment="center"
                     android:textColor="@color/primaryTextColor"
                     android:textStyle="bold" />
-
             </LinearLayout>
         </androidx.cardview.widget.CardView>
     </LinearLayout>

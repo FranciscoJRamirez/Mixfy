@@ -7,38 +7,40 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/taplayout"
-        app:tabSelectedTextColor="@color/cardview_light_background"
-        app:tabIndicatorColor="@color/colorPrimaryDark"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary">
+        android:background="@color/colorPrimary"
+        app:tabIndicatorColor="@color/whiteCardColor"
+        app:tabSelectedTextColor="@color/cardview_light_background">
 
         <com.google.android.material.tabs.TabItem
             android:id="@+id/tapOfertas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ofertas"/>
+            android:icon="@drawable/ic_local_offer"
+            android:text="Ofertas" />
 
         <com.google.android.material.tabs.TabItem
             android:id="@+id/tapComidas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:icon="@drawable/ic_restaurant"
             android:text="Comidas" />
 
         <com.google.android.material.tabs.TabItem
             android:id="@+id/tapPerfil"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:icon="@drawable/ic_profile"
             android:text="Perfil" />
     </com.google.android.material.tabs.TabLayout>
-
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/viewpager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
 
 </LinearLayout>

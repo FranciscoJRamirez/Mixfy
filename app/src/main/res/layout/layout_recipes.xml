@@ -34,7 +34,7 @@
             android:textColor="#000000"
             android:textSize="25sp"
             android:textStyle="normal"
-            tools:text="Receta" />
+            android:text="Receta" />
 
         <TextView
             android:id="@+id/txtTiempo"
@@ -45,7 +45,7 @@
             android:textColor="#014e7d"
             android:textSize="14sp"
             android:textStyle="normal"
-            tools:text="Tiempo de preparación:" />
+            android:text="Tiempo de preparación:" />
 
     </LinearLayout>
 </LinearLayout>

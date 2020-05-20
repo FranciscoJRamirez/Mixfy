@@ -33,7 +33,7 @@
             android:textColor="#000000"
             android:textSize="25sp"
             android:textStyle="normal"
-            tools:text="Restaurante" />
+            android:text="Restaurante" />
 
         <TextView
             android:id="@+id/txtPlatillo"
@@ -44,7 +44,7 @@
             android:textColor="#014e7d"
             android:textSize="14sp"
             android:textStyle="normal"
-            tools:text="Platillo:" />
+            android:text="Platillo:" />
 
         <TextView
             android:id="@+id/txtPrecio"
@@ -55,7 +55,7 @@
             android:textColor="#014e7d"
             android:textSize="14sp"
             android:textStyle="normal"
-            tools:text="Precio:" />
+            android:text="Precio:" />
 
     </LinearLayout>
 </LinearLayout>

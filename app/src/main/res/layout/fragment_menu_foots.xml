@@ -43,7 +43,8 @@
         android:textColor="#eb070707"
         android:textSize="13sp"
         android:textStyle="normal"
-        tools:text="Buscar por:" />
+        android:drawableLeft="@drawable/ic_filter_list"
+        android:text="Buscar por:" />
 
     <LinearLayout
         android:layout_width="match_parent"

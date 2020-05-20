@@ -70,7 +70,7 @@
                             style="@style/parent"
                             android:layout_marginTop="20dp"
                             android:textColor="@color/primaryTextColor"
-                            tools:text="Usuario" />
+                            android:text="Usuario:" />
 
 
                         <EditText
@@ -85,7 +85,7 @@
                             style="@style/parent"
                             android:layout_marginTop="20dp"
                             android:textColor="@color/primaryTextColor"
-                            tools:text="Contraseña" />
+                            android:text="Contraseña:" />
 
                         <EditText
                             android:id="@+id/editTextPassword"

@@ -61,7 +61,6 @@
                         android:orientation="horizontal"
                         android:padding="20dp">
 
-
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -76,7 +75,7 @@
                                 android:gravity="center_horizontal"
                                 android:textColor="@color/primaryTextColor"
                                 android:textSize="12sp"
-                                tools:text="Promos tomadas" />
+                                android:text="Promos tomadas" />
 
                             <TextView
                                 android:id="@+id/txtNPromos"
@@ -84,7 +83,7 @@
                                 android:gravity="center_horizontal"
                                 android:textColor="#0C0C0C"
                                 android:textSize="18sp"
-                                tools:text="3" />
+                                android:text="3" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -101,7 +100,7 @@
                                 android:gravity="center_horizontal"
                                 android:textColor="@color/primaryTextColor"
                                 android:textSize="12sp"
-                                tools:text="Recetas Realizadas" />
+                                android:text="Recetas Realizadas" />
 
                             <TextView
                                 android:id="@+id/txtNRec"
@@ -109,7 +108,7 @@
                                 android:gravity="center_horizontal"
                                 android:textColor="#0C0C0C"
                                 android:textSize="18sp"
-                                tools:text="17" />
+                                android:text="17" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -126,7 +125,7 @@
                                 android:gravity="center_horizontal"
                                 android:textColor="@color/primaryTextColor"
                                 android:textSize="12sp"
-                                tools:text="Restaurantes visitados" />
+                                android:text="Restaurantes visitados" />
 
                             <TextView
                                 android:id="@+id/txtNRest"
@@ -134,7 +133,7 @@
                                 android:gravity="center_horizontal"
                                 android:textColor="#0C0C0C"
                                 android:textSize="18sp"
-                                tools:text="9" />
+                                android:text="9" />
                         </LinearLayout>
 
 
@@ -170,7 +169,7 @@
                             android:layout_marginLeft="25dp"
                             android:layout_weight="2"
                             android:textColor="@color/primaryTextColor"
-                            tools:text="Correo" />
+                            android:text="Correo" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -193,7 +192,7 @@
                             android:layout_marginLeft="25dp"
                             android:layout_weight="2"
                             android:textColor="@color/primaryTextColor"
-                            tools:text="Número de celular" />
+                            android:text="Número de celular" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -216,7 +215,7 @@
                             android:layout_marginLeft="25dp"
                             android:layout_weight="2"
                             android:textColor="@color/primaryTextColor"
-                            tools:text="Favoritos" />
+                            android:text="Favoritos" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -239,7 +238,7 @@
                             android:layout_marginLeft="25dp"
                             android:layout_weight="1"
                             android:textColor="@color/primaryTextColor"
-                            tools:text="Ayuda" />
+                            android:text="Ayuda" />
 
                     </LinearLayout>
 

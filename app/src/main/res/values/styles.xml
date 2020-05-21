@@ -59,6 +59,10 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="etiqueta">
+        <item name="android:background">@drawable/style_fab</item>
+        <item name="android:textColor">#fff</item>
+    </style>
 
 
 </resources>

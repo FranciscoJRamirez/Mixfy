@@ -32,7 +32,7 @@ public class ProfileFragment extends Fragment {
         boolean session = preferences.getBoolean("session", false);
         if (!session) {
             FragmentTransaction ft = getFragmentManager().beginTransaction();
-            singInFragment singInFragment = new singInFragment();
+            signInFragment singInFragment = new signInFragment();
             ft.replace(R.id.framel, singInFragment);
             ft.commit();
         }else{

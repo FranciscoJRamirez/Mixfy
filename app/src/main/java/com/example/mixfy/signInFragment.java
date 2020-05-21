@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -20,6 +21,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -30,72 +32,75 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class singUpFragment extends Fragment {
-    EditText editname, editcel, editemail, editpass;
-    String name, lastnamep, lastnamem, email, celphone;
+/**
+ * A simple {@link Fragment} subclass.
+ */
+
+public class signInFragment extends Fragment {
+
+    private View.OnClickListener clic;
+    Button btnSignin;
+    EditText editemail, editpass;
+    RequestQueue rq;
+    JsonRequest jr;
+    String email, pass, name, lastnamep, lastnamem, celphone;
     boolean session;
-    Button  btnsignup ;
-    public singUpFragment() {
+
+    public View.OnClickListener getClic() {
+        return clic;
+    }
+
+    public void setClic(View.OnClickListener clic) {
+        this.clic = clic;
+    }
+
+    public signInFragment() {
         // Required empty public constructor
     }
-    RequestQueue rq;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        RelativeLayout rl = (RelativeLayout)inflater.inflate(R.layout.fragment_sing_up, container, false);
-        editname=rl.findViewById(R.id.editTextName);
-        editemail=rl.findViewById(R.id.editTextEmail);
-        editcel=rl.findViewById(R.id.editTextCel);
-        editpass=rl.findViewById(R.id.editTextPass);
-        btnsignup=rl.findViewById(R.id.cirLoginButton);
-
-        btnsignup.setOnClickListener(new View.OnClickListener() {
+        RelativeLayout r = (RelativeLayout) inflater.inflate(R.layout.fragment_sign_in, container, false);
+        TextView register = r.findViewById(R.id.textRegister);
+        TextView password = r.findViewById(R.id.textPassR);
+        btnSignin = r.findViewById(R.id.cirLoginButton);
+        editemail = r.findViewById(R.id.editTextEmail);
+        editpass = r.findViewById(R.id.editTextPassword);
+        register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                signUpUser("http://192.168.1.112/mixfy/insertUser.php");
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                signUpFragment signp = new signUpFragment();
+                ft.replace(R.id.frame, signp);
+                //ft.addToBackStack("back");
+                ft.commit();
             }
         });
-        return rl;
-    }
 
-    private void signUpUser(String URL){
-        StringRequest sr = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
+        password.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onResponse(String response) {
-                user user= new user();
-                JSONObject jsonObject=null;
-
-                if (!response.isEmpty()){
-
-                    login("http://192.168.1.112/mixfy/login.php");
-
-                }else {
-                    Toast.makeText(getContext(), "Error trying request a new user", Toast.LENGTH_SHORT).show();
-                }
+            public void onClick(View v) {
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                PasswordRFragment pass = new PasswordRFragment();
+                ft.replace(R.id.frame, pass);
+               // ft.addToBackStack("back");
+                ft.commit();
             }
-        }, new Response.ErrorListener() {
+        });
+
+        btnSignin.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getContext(), "Server error", Toast.LENGTH_SHORT).show();
+            public void onClick(View v) {
+                login("http://192.168.1.112/mixfy/login.php?email="+ editemail.getText().toString()+"" +
+                        "&password="+editpass.getText().toString());
+
             }
-        }
-        ){
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> parameters = new HashMap<String, String>();
-                parameters.put("nombre", editname.getText().toString());
-                parameters.put("apellidop", "");
-                parameters.put("apellidom", "");
-                parameters.put("correo", editemail.getText().toString());
-                parameters.put("telefono", editcel.getText().toString());
-                parameters.put("contrasena", editpass.getText().toString());
-                return parameters;
-            }
-        };
-        rq = Volley.newRequestQueue(getContext());
-        rq.add(sr);
+        });
+
+        return r;
     }
 
     private void login (String URL){
@@ -148,7 +153,6 @@ public class singUpFragment extends Fragment {
         rq = Volley.newRequestQueue(getContext());
         rq.add(sr);
     }
-
     private void savePreference (){
         SharedPreferences preferences = this.getActivity().getSharedPreferences("Login", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor =preferences.edit();
@@ -160,4 +164,6 @@ public class singUpFragment extends Fragment {
         editor.putBoolean("session", session);
         editor.commit();
     }
+
+
 }

@@ -13,6 +13,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.getbase.floatingactionbutton.FloatingActionButton;
 
 import org.w3c.dom.Text;
 
@@ -54,12 +57,12 @@ public class startFragment extends Fragment {
             }
         });
 
-        /*txtFavs.setOnClickListener(new View.OnClickListener() {
+       /*txtFavs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
                 FavsFragment favs = new FavsFragment();
-                ft.replace(R.id.frame, favs);
+                ft.replace(R.id.rl, favs);
                 // ft.addToBackStack("back");
                 ft.commit();
             }
@@ -70,11 +73,34 @@ public class startFragment extends Fragment {
             public void onClick(View v) {
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
                 HelpFragment help = new HelpFragment();
-                ft.replace(R.id.frame, help);
-                // ft.addToBackStack("back");
+                ft.replace(R.id.rl, help);
+                ft.addToBackStack("back");
                 ft.commit();
             }
         });*/
+
+        final FloatingActionButton fab_profile = (FloatingActionButton) r.findViewById(R.id.fab_profile);
+        fab_profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                UpdateProfileFragment help = new UpdateProfileFragment();
+                ft.replace(R.id.rl, help);
+                ft.commit();
+            }
+        });
+
+        final FloatingActionButton fab_pass = (FloatingActionButton) r.findViewById(R.id.fab_pass);
+        fab_pass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                UpdatePassFragment help = new UpdatePassFragment();
+                ft.replace(R.id.rl, help);
+                ft.commit();
+            }
+        });
+
         return r;
     }
 }

@@ -49,13 +49,53 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:paddingLeft="60dp"
         android:paddingTop="5dp"
         android:paddingRight="60dp"
-        android:paddingBottom="10dp"
-        >
+        android:paddingBottom="10dp">
 
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif"
+            android:lineSpacingExtra="2sp"
+            android:text="Categoria:"
+            android:textColor="#000000"
+            android:textSize="13sp"
+            android:textStyle="normal" />
+
+        <Spinner
+            android:id="@+id/SpinnerCat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:layout_weight="1"></Spinner>
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif"
+            android:lineSpacingExtra="2sp"
+            android:text="Ingredientes:"
+            android:textColor="#eb070707"
+            android:textSize="13sp"
+            android:textStyle="normal" />
+
+        <Spinner
+            android:id="@+id/SpinnerIng"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:layout_weight="1"></Spinner>
+
+        <!--- Botones opcionales a spinner
         <Button
             android:id="@+id/btnIngre"
             android:layout_width="wrap_content"
@@ -65,7 +105,6 @@
             android:text="Ingrediente"
             android:background="@drawable/boton_redondo"
             />
-
         <Button
             android:id="@+id/btnCat"
             android:layout_width="wrap_content"
@@ -73,7 +112,8 @@
             android:layout_marginLeft="10dp"
             android:layout_weight="1"
             android:text="Categoria"
-            android:background="@drawable/boton_redondo" />
+            android:background="@drawable/boton_redondo" /> -->
+
     </LinearLayout>
 
     <fragment

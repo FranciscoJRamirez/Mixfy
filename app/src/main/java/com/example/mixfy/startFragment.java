@@ -41,12 +41,12 @@ public class startFragment extends Fragment {
         txtHelp = r.findViewById(R.id.txtAyuda);
         email = r.findViewById(R.id.txtCorreo);
         celphone = r.findViewById(R.id.txtCelular);
-        btnSignout = r.findViewById(R.id.btnSignOut);
+        //btnSignout = r.findViewById(R.id.btnSignOut);
         final SharedPreferences preferences = this.getActivity().getSharedPreferences("Login", Context.MODE_PRIVATE);
 
         email.setText(preferences.getString("email", "error"));
         celphone.setText(preferences.getString("celphone", "error"));
-        btnSignout.setOnClickListener(new View.OnClickListener() {
+        /*btnSignout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 preferences.edit().clear().commit();
@@ -97,6 +97,17 @@ public class startFragment extends Fragment {
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
                 UpdatePassFragment help = new UpdatePassFragment();
                 ft.replace(R.id.rl, help);
+                ft.commit();
+            }
+        });
+        final FloatingActionButton fab_exit = (FloatingActionButton) r.findViewById(R.id.fab_exit);
+        fab_exit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                preferences.edit().clear().commit();
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                signInFragment singInFragment=new signInFragment();
+                ft.replace(R.id.rl, singInFragment);
                 ft.commit();
             }
         });

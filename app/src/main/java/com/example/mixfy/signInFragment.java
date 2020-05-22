@@ -94,7 +94,7 @@ public class signInFragment extends Fragment {
         btnSignin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                login("http://192.168.1.112/mixfy/login.php?email="+ editemail.getText().toString()+"" +
+                login("http://192.168.1.98/mixfy/login.php?email="+ editemail.getText().toString()+"" +
                         "&password="+editpass.getText().toString());
 
             }

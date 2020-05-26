@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         user user = new user();
         pagerAdapter = new PagerAdapter(getSupportFragmentManager());
-        pagerAdapter.addFragment(new OffersFragment(),"Ofertas");
+        pagerAdapter.addFragment(new ListOFragment(),"Ofertas");
         pagerAdapter.addFragment(new MenuFootsFragment(),"Comidas");
         pagerAdapter.addFragment(new ProfileFragment(), "Perfil");
 

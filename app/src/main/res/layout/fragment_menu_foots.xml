@@ -50,9 +50,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingLeft="60dp"
+        android:paddingLeft="30dp"
         android:paddingTop="5dp"
-        android:paddingRight="60dp"
+        android:paddingRight="30dp"
         android:paddingBottom="10dp">
 
         <TextView
@@ -72,7 +72,7 @@
             android:id="@+id/SpinnerCat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp"
+            android:layout_margin="5dp"
             android:layout_weight="1"></Spinner>
 
         <TextView
@@ -92,7 +92,7 @@
             android:id="@+id/SpinnerIng"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp"
+            android:layout_margin="5dp"
             android:layout_weight="1"></Spinner>
 
         <!--- Botones opcionales a spinner
@@ -116,13 +116,11 @@
 
     </LinearLayout>
 
-    <fragment
-        android:id="@+id/fragment"
-        android:name="com.example.mixfy.ListFFragment"
+    <FrameLayout
+        android:id="@+id/frameList"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="20dp" />
+        android:layout_height="match_parent">
+
+    </FrameLayout>
 
 </LinearLayout>

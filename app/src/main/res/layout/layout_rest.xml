@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:layout_weight=".5"
+        android:layout_weight="1"
         tools:srcCompat="@tools:sample/avatars" />
 
     <LinearLayout
@@ -30,10 +30,10 @@
             android:shadowColor="#24000000"
             android:shadowDy="3"
             android:shadowRadius="6"
+            android:text="Restaurante"
             android:textColor="#000000"
-            android:textSize="25sp"
-            android:textStyle="normal"
-            android:text="Restaurante" />
+            android:textSize="14sp"
+            android:textStyle="normal" />
 
         <TextView
             android:id="@+id/txtPlatillo"

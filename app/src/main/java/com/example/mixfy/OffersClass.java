@@ -1,13 +1,13 @@
 package com.example.mixfy;
 
 public class OffersClass {
-    private int image;
+    private String image;
 
-    public OffersClass(int image) {
+    public OffersClass(String image) {
         this.image = image;
     }
 
-    public int getImage() {
+    public String getImage() {
         return image;
     }
 }

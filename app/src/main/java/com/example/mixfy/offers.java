@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 
 public class offers extends ArrayAdapter<OffersClass> {
@@ -30,8 +31,8 @@ public class offers extends ArrayAdapter<OffersClass> {
         }
 
         imgen = convertView.findViewById(R.id.imageView2);
-
-        imgen.setImageResource(img[position].getImage());
+        int resID = getResId(img[position].getImage(), R.drawable.class);
+        imgen.setImageResource(resID);
 
         return convertView;
     }
@@ -43,5 +44,15 @@ public class offers extends ArrayAdapter<OffersClass> {
         this.c = c;
         this.r = r;
         this.img = img;
+    }
+    public static int getResId(String resName, Class<?> c) {
+
+        try {
+            Field idField = c.getDeclaredField(resName);
+            return idField.getInt(idField);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return -1;
+        }
     }
 }

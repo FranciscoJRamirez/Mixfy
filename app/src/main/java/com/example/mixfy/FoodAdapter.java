@@ -2,6 +2,7 @@ package com.example.mixfy;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import java.lang.reflect.Field;
 
 
 public class FoodAdapter extends ArrayAdapter<FoodClass> {
@@ -34,7 +37,8 @@ public class FoodAdapter extends ArrayAdapter<FoodClass> {
         n = convertView.findViewById(R.id.txtNombreRec);
         l = convertView.findViewById(R.id.txtTiempo);
 
-        imgen.setImageResource(a[position].getImg());
+        int resID = getResId(a[position].getImg(), R.drawable.class);
+        imgen.setImageResource(resID);
         n.setText(a[position].getName());
         l.setText(a[position].getLast());
         return convertView;
@@ -46,6 +50,16 @@ public class FoodAdapter extends ArrayAdapter<FoodClass> {
         this.r=resource;
         this.a = objects;
 
+    }
+    public static int getResId(String resName, Class<?> c) {
+
+        try {
+            Field idField = c.getDeclaredField(resName);
+            return idField.getInt(idField);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return -1;
+        }
     }
 
 

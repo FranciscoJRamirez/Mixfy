@@ -1,18 +1,18 @@
 package com.example.mixfy;
 
 public class ResClass {
-    private int img;
+    private String img;
     private String nombreRes, platillo, precio;
 
 
-    public ResClass(int img, String nombreRes, String platillo, String precio) {
+    public ResClass(String img, String nombreRes, String platillo, String precio) {
         this.img = img;
         this.nombreRes = nombreRes;
         this.platillo = platillo;
         this.precio = precio;
     }
 
-    public int getImg() {
+    public String getImg() {
         return img;
     }
 

@@ -43,7 +43,7 @@ public class signInFragment extends Fragment {
     EditText editemail, editpass;
     RequestQueue rq;
     JsonRequest jr;
-    String email, pass, name, lastnamep, lastnamem, celphone;
+    String id, email, pass, name, lastnamep, lastnamem, celphone;
     boolean session;
 
     public View.OnClickListener getClic() {
@@ -156,6 +156,7 @@ public class signInFragment extends Fragment {
     private void savePreference (){
         SharedPreferences preferences = this.getActivity().getSharedPreferences("Login", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor =preferences.edit();
+        editor.putString("id", id);
         editor.putString("name", name);
         editor.putString("lastnamep", lastnamep);
         editor.putString("lastnamem", lastnamem);

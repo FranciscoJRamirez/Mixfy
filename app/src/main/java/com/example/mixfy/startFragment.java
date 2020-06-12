@@ -1,6 +1,7 @@
 package com.example.mixfy;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -41,6 +42,19 @@ public class startFragment extends Fragment {
         txtHelp = r.findViewById(R.id.txtAyuda);
         email = r.findViewById(R.id.txtCorreo);
         celphone = r.findViewById(R.id.txtCelular);
+        txtFavs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "OK", Toast.LENGTH_SHORT).show();
+            }
+        });
+        txtHelp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), help.class);
+                startActivity(intent);
+            }
+        });
         //btnSignout = r.findViewById(R.id.btnSignOut);
         final SharedPreferences preferences = this.getActivity().getSharedPreferences("Login", Context.MODE_PRIVATE);
 

@@ -6,4 +6,45 @@
 
     <string name="signup_login_hint">¿No tienes una cuenta? Registrate</string>
     <string name="login_signup_hint">¿Ya tienes una cuenta? Inicia sesión</string>
+    <string-array name="categorias">
+        <item>Seleccione</item>
+        <item>Alitas</item>
+        <item>Asiatica</item>
+        <item>Café y té</item>
+        <item>Hamburguesas</item>
+        <item>Italiana</item>
+        <item>Mariscos y pescados</item>
+        <item>Mexicana</item>
+        <item>Pizza</item>
+        <item>Postres</item>
+        <item>Vegetarianos</item>
+    </string-array>
+    <string-array name="ingredientes">
+        <item>seleccione</item>
+        <item>Aceite</item>
+        <item>Arroz</item>
+        <item>Atun</item>
+        <item>Calabaza</item>
+        <item>Camaron</item>
+        <item>Carne</item>
+        <item>Champiñon</item>
+        <item>Chocolate</item>
+        <item>Fresa</item>
+        <item>Grenetina</item>
+        <item>Harina</item>
+        <item>Huevos</item>
+        <item>Leche</item>
+        <item>Lechuga</item>
+        <item>Lentejas</item>
+        <item>Mantequilla</item>
+        <item>Manzana</item>
+        <item>Pan</item>
+        <item>Pasta</item>
+        <item>Peperoni</item>
+        <item>Pescado</item>
+        <item>Platano</item>
+        <item>Pollo</item>
+        <item>Pepino</item>
+        <item>Queso</item>
+    </string-array>
 </resources>

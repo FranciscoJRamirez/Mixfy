@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:text="TextView"
         android:textAlignment="center"
+        android:textColor="#000000"
         android:textSize="36sp" />
 
     <ImageView
@@ -25,12 +26,14 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/button"
+        <ImageButton
+            android:id="@+id/imageButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/ic_group_collapse_00" />
+            app:srcCompat="@drawable/left_arrow"
+            android:background="@color/colorPrimary"
+            android:layout_marginTop="2dp"/>
 
         <TextView
             android:id="@+id/textView6"
@@ -41,12 +44,15 @@
             android:textAlignment="center"
             android:textSize="24sp" />
 
-        <Button
-            android:id="@+id/button2"
+        <ImageButton
+            android:id="@+id/imageButton2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/ic_group_expand_00" />
+            app:srcCompat="@drawable/right_arrow"
+            android:background="@color/colorPrimary"
+            android:layout_marginTop="2dp"/>
+
     </LinearLayout>
 
     <LinearLayout
@@ -58,14 +64,22 @@
             android:id="@+id/button3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginRight="1dp"
             android:layout_weight="1"
-            android:text="Pedir" />
+            android:background="@color/colorPrimary"
+            android:text="Pedir"
+            android:textColor="#FCFFFFFF" />
 
         <Button
             android:id="@+id/button4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="1dp"
+            android:layout_marginTop="2dp"
             android:layout_weight="1"
-            android:text="Cancelar" />
+            android:background="@color/colorPrimary"
+            android:text="Cancelar"
+            android:textColor="#FFFFFF" />
     </LinearLayout>
 </LinearLayout>

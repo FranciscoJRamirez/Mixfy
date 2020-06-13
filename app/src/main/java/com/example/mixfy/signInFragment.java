@@ -43,7 +43,8 @@ public class signInFragment extends Fragment {
     EditText editemail, editpass;
     RequestQueue rq;
     JsonRequest jr;
-    String id, email, pass, name, lastnamep, lastnamem, celphone;
+    String  email, pass, name, lastnamep, lastnamem, celphone, promo, real, visit;
+    String id;
     boolean session;
 
     public View.OnClickListener getClic() {
@@ -116,11 +117,15 @@ public class signInFragment extends Fragment {
                     try {
                         jsonObject = new JSONObject(response);
                         Toast.makeText(getContext(), "Sucessfully access", Toast.LENGTH_SHORT).show();
+                        id = (jsonObject.getString("id_usuarios"));
                         name=(jsonObject.getString("nombre"));
                         lastnamep=(jsonObject.getString("apellidop"));
                         lastnamem=(jsonObject.getString("apellidom"));
                         email=(jsonObject.getString("correo"));
                         celphone=(jsonObject.getString("telefono"));
+                        promo = jsonObject.getString("promos");
+                        real = jsonObject.getString("realizadas");
+                        visit = jsonObject.getString("visitados");
                         session =(true);
                         savePreference();
                         FragmentTransaction ft = getFragmentManager().beginTransaction();
@@ -128,7 +133,7 @@ public class signInFragment extends Fragment {
                         ft.replace(R.id.frame, startFragment);
                         ft.commit();
                     }catch (JSONException e){
-
+                        e.printStackTrace();
                     }
 
                 }else {
@@ -162,6 +167,9 @@ public class signInFragment extends Fragment {
         editor.putString("lastnamem", lastnamem);
         editor.putString("email", email);
         editor.putString("celphone", celphone);
+        editor.putString("promo", promo);
+        editor.putString("realizadas", real);
+        editor.putString("visitadas", visit);
         editor.putBoolean("session", session);
         editor.commit();
     }

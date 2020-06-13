@@ -41,10 +41,11 @@
         <item>Pan</item>
         <item>Pasta</item>
         <item>Peperoni</item>
+        <item>Pepino</item>
         <item>Pescado</item>
         <item>Platano</item>
         <item>Pollo</item>
-        <item>Pepino</item>
+
         <item>Queso</item>
     </string-array>
 </resources>

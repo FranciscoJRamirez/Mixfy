@@ -2,13 +2,18 @@ package com.example.mixfy;
 
 public class FoodClass {
 
+    private int id;
     private String img;
     private String name;
+    private String desc;
     private String last;
 
-    public FoodClass(String img, String name, String last) {
+
+    public FoodClass(int id, String img, String name, String desc, String last) {
+        this.id = id;
         this.img = img;
         this.name = name;
+        this.desc = desc;
         this.last = last;
     }
 
@@ -37,5 +42,13 @@ public class FoodClass {
 
     public void setLast(String last) {
         this.last = last;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getDesc() {
+        return desc;
     }
 }

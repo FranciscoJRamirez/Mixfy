@@ -8,6 +8,7 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,16 +18,22 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.getbase.floatingactionbutton.FloatingActionButton;
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.AsyncHttpResponseHandler;
 
+import org.json.JSONArray;
 import org.w3c.dom.Text;
+
+import cz.msebera.android.httpclient.Header;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class startFragment extends Fragment {
-    TextView email, celphone,txtFavs,txtHelp;
-    Button btnSignout;
+    TextView email, celphone,txtFavs,txtHelp, promo, real, visit;
+    AsyncHttpClient client;
+    String id_u;
     public startFragment() {
         // Required empty public constructor
     }
@@ -42,10 +49,16 @@ public class startFragment extends Fragment {
         txtHelp = r.findViewById(R.id.txtAyuda);
         email = r.findViewById(R.id.txtCorreo);
         celphone = r.findViewById(R.id.txtCelular);
+        promo = r.findViewById(R.id.txtNPromos);
+        real = r.findViewById(R.id.txtNRec);
+        visit = r.findViewById(R.id.txtNRest);
         txtFavs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "OK", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getContext(), FavActivity.class);
+                intent.putExtra("id_user", id_u);
+                startActivity(intent);
+
             }
         });
         txtHelp.setOnClickListener(new View.OnClickListener() {
@@ -55,43 +68,17 @@ public class startFragment extends Fragment {
                 startActivity(intent);
             }
         });
-        //btnSignout = r.findViewById(R.id.btnSignOut);
         final SharedPreferences preferences = this.getActivity().getSharedPreferences("Login", Context.MODE_PRIVATE);
 
         email.setText(preferences.getString("email", "error"));
         celphone.setText(preferences.getString("celphone", "error"));
-        /*btnSignout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                preferences.edit().clear().commit();
-                FragmentTransaction ft = getFragmentManager().beginTransaction();
-                signInFragment singInFragment=new signInFragment();
-                ft.replace(R.id.rl, singInFragment);
-                ft.commit();
-            }
-        });
+        id_u=preferences.getString("id", "0");
+        promo.setText(preferences.getString("promo", "error"));
+        real.setText(preferences.getString("realizadas", "error"));
+        visit.setText(preferences.getString("visitadas", "error"));
 
-       /*txtFavs.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentTransaction ft = getFragmentManager().beginTransaction();
-                FavsFragment favs = new FavsFragment();
-                ft.replace(R.id.rl, favs);
-                // ft.addToBackStack("back");
-                ft.commit();
-            }
-        });
 
-        txtHelp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentTransaction ft = getFragmentManager().beginTransaction();
-                HelpFragment help = new HelpFragment();
-                ft.replace(R.id.rl, help);
-                ft.addToBackStack("back");
-                ft.commit();
-            }
-        });*/
+
 
         final FloatingActionButton fab_profile = (FloatingActionButton) r.findViewById(R.id.fab_profile);
         fab_profile.setOnClickListener(new View.OnClickListener() {

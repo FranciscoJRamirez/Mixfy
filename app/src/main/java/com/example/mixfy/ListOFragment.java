@@ -1,7 +1,9 @@
 package com.example.mixfy;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -39,30 +41,34 @@ public class ListOFragment extends Fragment {
         // Inflate the layout for this fragment
         FrameLayout fl = (FrameLayout)inflater.inflate(R.layout.fragment_list_o, container, false);
         list = fl.findViewById(R.id.listOffers);
-        client.post("http://192.168.1.98/mixfy/getPromo.php", new AsyncHttpResponseHandler() {
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-                if (statusCode == 200){
-                resultquery(new String (responseBody));
-                }
-            }
-
-            @Override
-            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
-
-            }
-        });
+        searchPromos();
 
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
                 builder.setTitle("Utilizar Promoción");
                 builder.setMessage("¿Quieres utilizar esta promo?")
                         .setPositiveButton("Sí", new DialogInterface.OnClickListener(){
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                Toast.makeText(getContext(),"Promo utilizada",Toast.LENGTH_SHORT).show();
+                                SharedPreferences preferences = getActivity().getSharedPreferences("Login", Context.MODE_PRIVATE);
+                                if(!preferences.getString("email", "error").equals("error")){
+                                    client.post("http://192.168.1.98/mixfy/updatePromo.php?id=" + imagenes[position].getId(), new AsyncHttpResponseHandler() {
+                                        @Override
+                                        public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                                            Toast.makeText(getContext(), "Promoción cobrada", Toast.LENGTH_SHORT).show();
+                                            searchPromos();
+                                        }
+
+                                        @Override
+                                        public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                                            Toast.makeText(getContext(), "Hubo un error al procesar la solicitud, intentelo mas tarde", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+                                }else {
+                                    Toast.makeText(getContext(), "Tienes que loguearte para poder cobrar la promoción", Toast.LENGTH_SHORT).show();
+                                }
                             }
                         })
                         .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
@@ -85,7 +91,8 @@ public class ListOFragment extends Fragment {
             imagenes=new OffersClass[jsonArray.length()];
 
             for (int i = 0; i<jsonArray.length();i++){
-                imagenes[i]=new OffersClass(jsonArray.getJSONObject(i).getString("imagen"));
+                imagenes[i]=new OffersClass(jsonArray.getJSONObject(i).getInt("id_cupon"),jsonArray.getJSONObject(i).getString("imagen"),
+                        jsonArray.getJSONObject(i).getInt("disponible"));
 
             }
 
@@ -94,5 +101,20 @@ public class ListOFragment extends Fragment {
             e.printStackTrace();
             Toast.makeText(getContext(), "fail", Toast.LENGTH_SHORT).show();
         }
+    }
+    public void searchPromos (){
+        client.post("http://192.168.1.98/mixfy/getPromo.php", new AsyncHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                if (statusCode == 200){
+                    resultquery(new String (responseBody));
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+
+            }
+        });
     }
 }
